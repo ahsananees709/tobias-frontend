@@ -1,0 +1,36 @@
+.star-animation-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .home-icon {
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: starPattern 2s linear infinite;
+  }
+  
+  @keyframes starPattern {
+    0% {
+      transform: translate(0, -80px);
+    }
+    20% {
+      transform: translate(47px, -15px);
+    }
+    40% {
+      transform: translate(29px, 64px);
+    }
+    60% {
+      transform: translate(-29px, 64px);
+    }
+    80% {
+      transform: translate(-47px, -15px);
+    }
+    100% {
+      transform: translate(0, -80px);
+    }
+  }
+  
