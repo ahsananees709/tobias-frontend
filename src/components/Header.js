@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../utils/AuthContext';
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +20,13 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-footer-header-color shadow-4xl p-5 lg:px-32">
+        <nav className="bg-footer-header-color shadow-4xl p-3 lg:px-32">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <div className="text-white text-2xl font-bold">
                     <Link to="/" onClick={handleLinkClick}>
-                        <FontAwesomeIcon icon={faHouse} size="2x" />
+                        {/* <FontAwesomeIcon icon={faHouse} size="2x" /> */}
+                        <img src={logo} alt='logo'></img>
                     </Link>
                 </div>
 

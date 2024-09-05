@@ -1,18 +1,15 @@
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import { getToken, refreshToken, TOKEN_KEY } from './constants';
+import { getToken} from './constants';
 
 
 
 
 // Set up axios instance
 const axiosInstance = axios.create({
-  baseURL: 'https://0203-59-103-102-130.ngrok-free.app/v1/',
+  baseURL: 'http://51.20.69.97:8080/v1/',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
-    'ngrok-skip-browser-warning': 'true',
-    // 'Authorization': token ? `Bearer ${token}` : '',
   },
 });
 
