@@ -278,7 +278,7 @@ function SignupPage() {
                     <button
                       type="button"
                       className={`absolute inset-y-0 right-0 flex items-center ${
-                        errors.password ? "px-5 pb-5" : "px-5 "
+                        errors.password ? "px-5 pb-14" : "px-5 "
                       }`}
                       onClick={() => setShowPassword(!showPassword)}
                     >

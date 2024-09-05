@@ -33,10 +33,10 @@ const step2SignupSchema = Yup.object().shape({
     ,
     password: Yup.string()
       .required("Password is required")
-      .min(8, "Password must be at least 8 characters")
+      // .min(8, "Password must be at least 8 characters")
       .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        "Password must be a mixture of letters, numbers, and special characters"
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+        "Password must be atleast 8 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character."
       ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -48,8 +48,8 @@ const step2SignupSchema = Yup.object().shape({
       .required("Password is required")
       .min(8, "Password must be at least 8 characters")
       .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        "Password must be a mixture of letters, numbers, and special characters"
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
       ),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -60,7 +60,10 @@ const profileModalSchema = {
   updatePassword: Yup.object().shape({
     password: Yup.string()
       .min(8, 'New password must be at least 8 characters')
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'Password must be a mixture of letters, numbers, and special characters')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+      )
       .required('New password is required'),
     confirmNewPassword: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match')

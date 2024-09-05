@@ -4,6 +4,7 @@ import axiosInstance from './axiosInstance';
 import { TOKEN_KEY } from './constants';
 import { notification } from './constants';
 
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         return tokens ? JSON.parse(tokens) : null;
     });
     const [loggedInUserData, setLoggedInUserData] = useState({});
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         if (authTokens) {
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
             setAuthenticatedUser(decodedToken.user_id);
             fetchUserData(decodedToken.user_id);
         }
-        setLoading(false); // Set loading to false after token processing
+        setLoading(false); 
     }, [authTokens]);
 
     const fetchUserData = async (userId) => {
@@ -54,11 +55,14 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem(TOKEN_KEY, JSON.stringify(responseData));
                 notification('Login successful!', 'success');
                 fetchUserData(decodedToken.user_id);
+                return true
             } else {
                 notification('Login Failed', 'error');
+                return false
             }
         } catch (error) {
             notification('Login Failed', 'error');
+            return false
         }
     };
 

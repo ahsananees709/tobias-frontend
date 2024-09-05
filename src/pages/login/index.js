@@ -25,7 +25,8 @@ function LoginPage() {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await loginUser(data);
+      const success = await loginUser(data);
+      if(success)
         navigate('/');
     } catch (error) {
       console.error("Login failed", error);
@@ -162,3 +163,6 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+
+

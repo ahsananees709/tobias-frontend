@@ -195,7 +195,7 @@ const Modal = ({ isOpen, onClose, loading, setLoading }) => {
                 )}
                 <button
                 type="button"
-                className={`absolute inset-y-0 right-0 flex items-center px-3 ${errors.password ? "pt-0" : "pt-6"}`}
+                className={`absolute inset-y-0 right-0 flex items-center px-3 ${errors.password ? "pb-5" : "pt-6"}`}
                 onClick={() => setShowNewPassword(!showNewPassword)}
               >
                 {showNewPassword ? (
